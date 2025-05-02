@@ -19,7 +19,7 @@ const Home_layouts = () => {
                 </section>
                 
             </header>
-            <main className='grid grid-cols-12 my-3 gap-10'>
+            <main className='grid grid-cols-12 my-10 gap-16'>
                 <aside className='col-span-3'>
                     <LeftAside></LeftAside>
                 </aside>
