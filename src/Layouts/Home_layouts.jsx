@@ -8,7 +8,7 @@ import RightAside from '../Components/HomeLayout/RightAside';
 
 const Home_layouts = () => {
     return (
-        <div>
+        <div className='px-20'>
             <header>
                 <Header></Header>
                 <section  className='my-3'>
