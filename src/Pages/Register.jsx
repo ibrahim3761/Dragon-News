@@ -1,10 +1,13 @@
 import React, { use, useState } from "react";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { AuthContext } from "../Provider/AuthProvider";
 
 const Register = () => {
   const [agree, setAgree] = useState(true); // checkbox default is checked
-  const {createUser,setUser}=use(AuthContext)
+  const {createUser,setUser,updateUser}=use(AuthContext)
+
+  const navigate = useNavigate()
+
   const handleRegister = (e) => {
     e.preventDefault();
 
@@ -17,16 +20,24 @@ const Register = () => {
     const photo = e.target.photo.value;
     const email = e.target.email.value;
     const password = e.target.password.value;
-    console.log(name, email, photo, password);
+   // console.log(name, email, photo, password);
     createUser(email,password)
     .then(result=>{
         const user = result.user;
-        console.log(user);
-        setUser(user);
-        
+       // console.log(user);
+        updateUser({displayNamne:name ,photoURL: photo})
+        .then(() => {
+          setUser({...user,displayNamne:name ,photoURL: photo});
+          navigate("/")
+        }).catch((error) => {
+          // An error occurred
+          // ...
+          //console.log(error);
+          setUser(user)
+        });
     })
     .catch((error) => {
-        const errorCode = error.code;
+        //const errorCode = error.code;
         const errorMessage = error.message;
         alert(errorMessage)
         // ..
