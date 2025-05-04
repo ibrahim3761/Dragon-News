@@ -18,14 +18,14 @@ const Navbar = () => {
         {/* You can put your logo or site name here */}
       </div>
 
-      <div className='mid flex gap-5 text-accent ml-32'>
+      <div className='mid flex gap-5 text-accent ml-[160px]'>
         <NavLink to="/">Home</NavLink>
         <NavLink to="/about">About</NavLink>
         <NavLink to="/career">Career</NavLink>
       </div>
 
       <div className='login-btn flex gap-2 items-center'>
-        {user && <img src={user.photoURL || userIcon} alt="user" className="w-8 h-8 rounded-full" />}
+        <img src={ userIcon} alt="user" className="w-8 h-8 rounded-full" />
         {user ? (
           <button onClick={handleLogout} className='btn btn-primary px-10'>Logout</button>
         ) : (

@@ -5,6 +5,7 @@ import { Link } from "react-router";
 
 const NewsCard = ({ news }) => {
   const {
+    id,
     title,
     details,
     image_url,
@@ -55,7 +56,7 @@ const NewsCard = ({ news }) => {
         {details.length > 200 ? (
           <>
             {details.slice(0, 200)}...{" "}
-            <Link className="text-red-500 font-medium cursor-pointer">
+            <Link to={`/news-details/${id}`} className="text-red-500 font-medium cursor-pointer">
               Read More
             </Link>
           </>
